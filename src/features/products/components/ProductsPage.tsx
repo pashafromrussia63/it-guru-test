@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { AddProductModal } from './AddProductModal';
 import { SearchBar } from './SearchBar';
