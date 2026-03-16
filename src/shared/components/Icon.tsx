@@ -20,13 +20,11 @@ export type IconName = keyof typeof icons;
 interface IconProps extends React.SVGProps<SVGSVGElement> {
     name: IconName;
     size?: number;
-    className?: string;
 }
 
 export const Icon: React.FC<IconProps> = ({ 
     name, 
-    size = 20, 
-    className = '', 
+    size = 20,
     ...props 
 }) => {
     const IconComponent = icons[name];
@@ -34,8 +32,7 @@ export const Icon: React.FC<IconProps> = ({
     return (
         <IconComponent 
             width={size} 
-            height={size} 
-            className={className}
+            height={size}
             {...props}
         />
     );
