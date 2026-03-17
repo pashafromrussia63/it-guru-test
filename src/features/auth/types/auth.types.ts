@@ -1,6 +1,9 @@
 export interface ProtectedRouteProps {
     children: React.ReactNode;
-  }
+}
+
+type InputIcon = 'user' | 'lock';
+type VisibilityIcon = 'eye' | 'eye_closed';
 
 export interface FormFieldProps {
     id: string;
@@ -9,12 +12,12 @@ export interface FormFieldProps {
     label: string;
     value: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    icon: 'user' | 'lock';
+    icon: InputIcon;
     showClear?: boolean;
     onClear?: () => void;
     showToggle?: boolean;
     onToggle?: () => void;
-    toggleIcon?: 'eye' | 'eye_closed';
+    toggleIcon?: VisibilityIcon;
 }
 
 export interface SubmitButtonProps {
