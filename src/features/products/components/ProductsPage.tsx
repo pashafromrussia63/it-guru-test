@@ -34,48 +34,50 @@ export const ProductsPage = () => {
   }
 
   return (
-        <div className="w-full px-6">
+        <div className="w-full px-6 flex flex-col min-h-screen">
             <Toaster />
 
             <div className="mt-6 flex items-end gap-4">
                 <h3 className="text-2xl font-bold">Товары</h3>
                 <div className="flex-1">
-                <SearchBar
-                    searchQuery={searchQuery}
-                    searching={searching}
-                    onSearchChange={setSearchQuery}
-                />
+                    <SearchBar
+                        searchQuery={searchQuery}
+                        searching={searching}
+                        onSearchChange={setSearchQuery}
+                    />
+                </div>
             </div>
-        </div>
 
-        <div className="mt-6 mb-6 flex justify-end gap-2">
-            <RefreshButton onClick={refresh} />
-            <AddButton onClick={() => setIsModalOpen(true)} />
-        </div>
+            <div className="mt-6 mb-6 flex justify-end gap-2">
+                <RefreshButton onClick={refresh} />
+                <AddButton onClick={() => setIsModalOpen(true)} />
+            </div>
 
-        {loading ? (
-            <LoadingState />
-        ) : (
-            <ProductsTable
-                products={products}
-                onSort={handleSort}
-                getSortIcon={getSortIcon}
+            <div className="flex flex-1" style={{ minHeight: '0' }}>
+                {loading ? (
+                    <LoadingState />
+                ) : (
+                    <ProductsTable
+                        products={products}
+                        onSort={handleSort}
+                        getSortIcon={getSortIcon}
+                    />
+                )}
+            </div>
+
+            <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                totalProducts={totalProducts}
+                displayedProducts={products.length}
+                searchQuery={searchQuery}
+                onPageChange={goToPage}
             />
-        )}
 
-        <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            totalProducts={totalProducts}
-            displayedProducts={products.length}
-            searchQuery={searchQuery}
-            onPageChange={goToPage}
-        />
-
-        <AddProductModal
-            isOpen={isModalOpen}
-            onClose={() => setIsModalOpen(false)}
-        />
+            <AddProductModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+            />
     </div>
   );
 };

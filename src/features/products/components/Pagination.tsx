@@ -41,7 +41,7 @@ export const Pagination: React.FC<PaginationProps> = ({
     };
 
     return (
-        <div className="w-full mt-6 flex items-center justify-between">
+        <div className="w-full my-6 flex items-center justify-between">
             <p className="text-sm text-gray-600">
                 Показано {startRange}-{endRange} из {totalProducts}
             </p>
