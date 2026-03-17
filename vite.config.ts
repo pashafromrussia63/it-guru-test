@@ -9,9 +9,7 @@ export default defineConfig({
         tailwindcss(),
         svgr({
             svgrOptions: {
-              icon: true,
-              exportType: 'named',
-              namedExport: 'ReactComponent',
+                exportType: 'default',
             },
           }),
     ],
