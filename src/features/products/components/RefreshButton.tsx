@@ -1,9 +1,5 @@
 import React from 'react';
-
-interface RefreshButtonProps {
-    onClick: () => void;
-    className?: string;
-}
+import type { RefreshButtonProps } from '../types/product.types';
 
 export const RefreshButton: React.FC<RefreshButtonProps> = ({ 
     onClick

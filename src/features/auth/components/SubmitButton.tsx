@@ -1,8 +1,5 @@
 import React from 'react';
-
-interface SubmitButtonProps {
-    loading: boolean;
-}
+import type { SubmitButtonProps } from '../types/auth.types';
 
 export const SubmitButton: React.FC<SubmitButtonProps> = ({ loading }) => {
     return (

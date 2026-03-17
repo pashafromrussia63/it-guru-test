@@ -25,14 +25,6 @@ export interface SortConfig {
     order: SortOrder;
 }
 
-export interface NewProduct {
-    title: string;
-    price: number;
-    brand: string;
-    sku: string;
-    rating?: number;
-}
-
 export interface ProductsTableProps {
     products: Product[];
     onSort: (field: SortField) => void;
@@ -58,6 +50,10 @@ export interface PaginationProps {
     onPageChange: (page: number) => void;
 }
 
+export interface RefreshButtonProps {
+    onClick: () => void;
+}
+
 export interface AddButtonProps {
     onClick: () => void;
 }
@@ -72,19 +68,6 @@ export interface ProductStore {
     sortOrder: SortOrder;
     setSort: (field: SortField) => void;
     resetSort: () => void;
-}
-
-export interface GetAllProductsParams {
-    limit?: number;
-    skip?: number;
-    sortBy?: SortField;
-    order?: SortOrder;
-}
-
-export interface SearchProductsParams {
-    query: string;
-    limit?: number;
-    skip?: number;
 }
 
 export interface UseProductsReturn {

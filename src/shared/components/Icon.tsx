@@ -5,27 +5,20 @@ import CrossIcon from '../../assets/icons/cross.svg';
 import EyeIcon from '../../assets/icons/eye.svg';
 import EyeClosedIcon from '../../assets/icons/eye_closed.svg';
 import RefreshIcon from '../../assets/icons/refresh.svg';
+import type { IconName, IconProps } from '../types/icon.types';
 
-const icons = {
+const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
     user: UserIcon,
     lock: LockIcon,
     cross: CrossIcon,
     eye: EyeIcon,
     eye_closed: EyeClosedIcon,
     refresh: RefreshIcon,
-} as const;
+};
 
-export type IconName = keyof typeof icons;
-
-interface IconProps extends React.SVGProps<SVGSVGElement> {
-    name: IconName;
-    size?: number;
-}
-
-export const Icon: React.FC<IconProps> = ({ 
-    name, 
-    size = 20,
-    ...props 
+export const Icon: React.FC<IconProps> = ({
+    name,
+    size = 20
 }) => {
     const IconComponent = icons[name];
   
@@ -33,7 +26,6 @@ export const Icon: React.FC<IconProps> = ({
         <IconComponent 
             width={size} 
             height={size}
-            {...props}
         />
     );
 };

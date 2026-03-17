@@ -1,20 +1,6 @@
 import React from 'react';
 import { Icon } from '../../../shared/components/Icon';
-
-interface FormFieldProps {
-    id: string;
-    name: string;
-    type: string;
-    label: string;
-    value: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    icon: 'user' | 'lock';
-    showClear?: boolean;
-    onClear?: () => void;
-    showToggle?: boolean;
-    onToggle?: () => void;
-    toggleIcon?: 'eye' | 'eye_closed';
-}
+import type { FormFieldProps } from '../types/auth.types';
 
 export const FormField: React.FC<FormFieldProps> = ({
     id,
