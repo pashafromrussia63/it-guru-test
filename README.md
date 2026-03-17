@@ -1,12 +1,11 @@
 # Тестовое задание для Айти Гуру
 
 ## Стек
-- React 18
+- React 19
 - TypeScript
-- Tailwind CSS
+- Tailwind CSS v4
 - Zustand
-- React Router v6
-- React Hook Form + Zod
+- React Router v7
 - React Hot Toast
 
 ## Запуск
