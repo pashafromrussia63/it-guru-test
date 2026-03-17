@@ -8,7 +8,7 @@ export const ProductsTable: React.FC<ProductsTableProps> = ({
     getSortIcon 
 }) => {
     return (
-        <div className="overflow-x-auto">
+        <div className="w-full overflow-x-auto">
             <table className="min-w-full bg-white border border-gray-200 table-fixed">
                 <thead>
                     <tr className="bg-gray-100">
