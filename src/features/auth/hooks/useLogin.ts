@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { authApi } from '../api/auth';
+import { setSession } from '../../../shared/auth/session';
 
 export const useLogin = () => {
     const navigate = useNavigate();
@@ -30,26 +31,17 @@ export const useLogin = () => {
 
         try {
             const response = await authApi.login(username, password);
-            
-            if (rememberMe) {
-                localStorage.setItem('auth_token', response.accessToken);
-                localStorage.setItem('user_data', JSON.stringify({
+            setSession(
+                response.accessToken,
+                {
                     id: response.id,
                     username: response.username,
                     firstName: response.firstName,
                     lastName: response.lastName,
-                    image: response.image
-                }));
-            } else {
-                sessionStorage.setItem('auth_token', response.accessToken);
-                sessionStorage.setItem('user_data', JSON.stringify({
-                    id: response.id,
-                    username: response.username,
-                    firstName: response.firstName,
-                    lastName: response.lastName,
-                    image: response.image
-                }));
-            }
+                    image: response.image,
+                },
+                rememberMe,
+            );
 
             navigate(from, { replace: true });
             
